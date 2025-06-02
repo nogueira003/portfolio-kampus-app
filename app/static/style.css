@@ -1,0 +1,49 @@
+/* Fundo geral da página (se quiser escurecer tudo) */
+body {
+    background-color: #282a36; /* fundo Drácula padrão */
+    color: #f8f8f2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding-bottom: 80px; /* espaço para o menu fixo */
+}
+
+/* Container se quiser */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Menu fixo centralizado na base */
+.menu {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(40, 42, 54, 0.85);
+    padding: 10px 25px;
+    border-radius: 15px;
+    display: flex;
+    gap: 50px;
+}
+
+.menu-item {
+    font-size: 28px;
+    color: #f8f8f2;
+    text-decoration: none;
+    padding-bottom: 0; /* espaço pra borda */
+    border-bottom: 4px solid transparent; /* borda "invisível" para não pular layout */
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-item:not(.active):hover {
+    transform: scale(1.2);
+    color: #bdf993;
+    filter: drop-shadow(0 0 5px #bdf993);
+}
+
+.menu-item.active {
+    border-bottom-color: #bdf993;
+    color: #bdf993;
+    font-weight: bold;
+}

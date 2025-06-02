@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+
+<div class="container">
+  {% block content %}{% endblock %}
+</div>
+
+<div class="menu">
+<a href="{{ url_for('home') }}" class="menu-item {% if request.path == '/' %}active{% endif %}">
+<ion-icon name="home-outline"></ion-icon>
+</a>
+<a href="{{ url_for('sobre') }}" class="menu-item {% if request.path == '/sobre' %}active{% endif %}">
+<ion-icon name="person-circle-outline"></ion-icon>
+</a>
+<a href="{{ url_for('curso') }}" class="menu-item {% if request.path == '/curso' %}active{% endif %}">
+<ion-icon name="terminal-outline"></ion-icon>
+</a>
+<a href="{{ url_for('contato') }}" class="menu-item {% if request.path == '/contato' %}active{% endif %}">
+<ion-icon name="mail-outline"></ion-icon>
+</a>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

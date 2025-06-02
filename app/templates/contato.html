@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+
+    <style>
+        #contato-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Cada campo ocupa metade do espaço */
+        #contato-form label,
+        #contato-form input,
+        #contato-form textarea {
+            display: block;
+            width: 100%;
+        }
+
+        #contato-form input {
+            padding: 0.4rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background-color: #282a36; /* dracula dark bg */
+            color: #f8f8f2; /* texto claro */
+        }
+
+        /* Para que label fique acima do input */
+        .inline-fields > div {
+            flex: 1; /* cada um ocupa metade do espaço */
+        }
+
+        #contato-form textarea {
+            padding: 0.4rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background-color: #282a36;
+            color: #f8f8f2;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Botão estilizado */
+        #contato-form button {
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            background-color: #bdf993;
+            color: #282a36;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            align-self: flex-start;
+        }
+
+        #contato-form button:hover {
+            filter: drop-shadow(0 0 5px #bdf993);
+        }
+
+        #msg-sucesso {
+            color: #bdf993;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+    <h1>Deixe sua Mensagem</h1>
+    <p>Envie suas dúvidas, elogios ou críticas.</p>
+
+    <form id="contato-form" action="{{ url_for('contato') }}" method="post">
+        <div class="inline-fields">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+        </div>
+        <div class="inline-fields">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+        </div>
+        <div class="inline-fields">
+            <div>
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" required></textarea>
+            </div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+
+    {% if sucesso %}
+        <div id="msg-sucesso">
+            <ion-icon name="checkbox-outline"></ion-icon> Email enviado com sucesso!
+        </div>
+
+        <script>
+            const msg = document.getElementById('msg-sucesso');
+            // Opcional: some a mensagem depois de 3 segundos
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 3000);
+        </script>
+
+    {% endif %}
+
+{% endblock %}
