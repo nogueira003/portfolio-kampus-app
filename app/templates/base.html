@@ -13,16 +13,16 @@
 </div>
 
 <div class="menu">
-<a href="{{ url_for('home') }}" class="menu-item {% if request.path == '/' %}active{% endif %}">
+<a id='home' href="{{ url_for('home') }}" class="menu-item {% if request.path == '/' %}active{% endif %}">
 <ion-icon name="home-outline"></ion-icon>
 </a>
-<a href="{{ url_for('sobre') }}" class="menu-item {% if request.path == '/sobre' %}active{% endif %}">
+<a id='about' href="{{ url_for('sobre') }}" class="menu-item {% if request.path == '/sobre' %}active{% endif %}">
 <ion-icon name="person-circle-outline"></ion-icon>
 </a>
-<a href="{{ url_for('curso') }}" class="menu-item {% if request.path == '/curso' %}active{% endif %}">
+<a id='course' href="{{ url_for('curso') }}" class="menu-item {% if request.path == '/curso' %}active{% endif %}">
 <ion-icon name="terminal-outline"></ion-icon>
 </a>
-<a href="{{ url_for('contato') }}" class="menu-item {% if request.path == '/contato' %}active{% endif %}">
+<a id='contact' href="{{ url_for('contato') }}" class="menu-item {% if request.path == '/contato' %}active{% endif %}">
 <ion-icon name="mail-outline"></ion-icon>
 </a>
 </div>
